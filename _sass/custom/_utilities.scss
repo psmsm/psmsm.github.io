@@ -1,0 +1,12 @@
+// Utility classes and global improvements
+
+// Smooth scrolling
+html {
+  scroll-behavior: smooth;
+}
+
+// Improve rendering
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}

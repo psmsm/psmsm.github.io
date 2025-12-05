@@ -1,0 +1,56 @@
+// Post navigation - Previous/Next buttons
+
+// Force footer or other elements to not overlap
+.page__footer {
+  margin-top: 5rem !important;
+  position: relative !important;
+  z-index: 1 !important;
+}
+
+.pagination {
+  margin: 4rem 0 5rem !important;
+  padding: 0 !important;
+  display: flex !important;
+  justify-content: space-between !important;
+  gap: 1rem !important;
+  overflow: visible !important;
+  clear: both !important;
+  position: relative !important;
+  z-index: 100 !important;
+  min-height: 60px !important;
+}
+
+// Previous and Next buttons
+.pagination--pager {
+  display: inline-block !important;
+  padding: 0.65rem 1.5rem !important;
+  background: #ffffff !important;
+  border: 2px solid #e5e7eb !important;
+  border-radius: 6px !important;
+  color: #111827 !important;
+  text-decoration: none !important;
+  transition: all 0.2s ease !important;
+  font-size: 0.95rem !important;
+  font-weight: 500 !important;
+  line-height: 1.5 !important;
+  box-sizing: border-box !important;
+  position: relative !important;
+  z-index: 101 !important;
+}
+
+.pagination--pager:hover {
+  border-color: #047857 !important;
+  color: #047857 !important;
+  text-decoration: none !important;
+  background: #f0fdf4 !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 4px 12px rgba(4, 120, 87, 0.2) !important;
+  z-index: 102 !important;
+}
+
+// Disabled state
+.pagination--pager.disabled {
+  opacity: 0.3 !important;
+  cursor: not-allowed !important;
+  pointer-events: none !important;
+}

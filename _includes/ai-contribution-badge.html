@@ -1,0 +1,22 @@
+{% assign level = include.level | plus: 0 %}
+{% case level %}
+  {% when 0 %}
+    {% assign author = "Winston" %}
+  {% when 1 %}
+    {% assign author = "Winston (AI 편집)" %}
+  {% when 2 %}
+    {% assign author = "Winston & Forest" %}
+  {% when 3 %}
+    {% assign author = "Forest (Winston 검토)" %}
+  {% when 4 %}
+    {% assign author = "Forest (Claude)" %}
+{% endcase %}
+
+<div class="ai-contribution-badge" style="margin: 2rem 0;">
+  <img src="{{ '/assets/images/badges/level-' | append: level | append: '.svg' | relative_url }}"
+       alt="AI Contribution Level {{ level }}"
+       style="max-width: 240px; height: auto; display: block;"/>
+  <div style="color: #6b7280; font-size: 0.875rem; margin-top: 0.75rem; padding-left: 0.25rem;">
+    ✏️ <strong style="color: #374151;">작성:</strong> {{ author }}
+  </div>
+</div>

@@ -1,0 +1,131 @@
+// Code blocks and syntax highlighting - Dark theme
+
+// Inline code - subtle dark background
+code {
+  font-family: var(--font-mono) !important;
+  font-size: 0.72em !important;
+  background: #2d2d2d !important;
+  color: #e8e8e8 !important;
+  padding: 0.2em 0.5em !important;
+  border-radius: 4px !important;
+  border: none !important;
+  font-weight: 400;
+}
+
+// Code blocks - dark theme with VS Code style
+pre {
+  font-family: var(--font-mono) !important;
+  font-size: 0.7rem !important;
+  line-height: 1.5 !important;
+  background: #1e1e1e !important;
+  border: 1px solid #333 !important;
+  padding: 1.5rem !important;
+  border-radius: 6px !important;
+  overflow-x: auto;
+  margin: 2rem 0 !important;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+pre code {
+  background: transparent !important;
+  padding: 0 !important;
+  border: none !important;
+  color: #d4d4d4 !important;
+  font-size: 0.7rem !important;
+}
+
+// Syntax highlighting overrides for dark theme
+.highlight {
+  background: #1e1e1e !important;
+  border-radius: 6px;
+
+  // Line numbers
+  .lineno {
+    color: #858585 !important;
+    padding-right: 0.75em !important;
+    padding-left: 0.5em !important;
+    min-width: 2.5em !important;
+    max-width: 3em !important;
+    display: inline-block;
+    text-align: right;
+    user-select: none;
+    font-size: 0.8em !important;
+  }
+
+  // General text
+  .p { color: #d4d4d4 !important; } // Punctuation
+
+  // Keywords
+  .k, .kd, .kn, .kp, .kr, .kt { color: #569cd6 !important; } // Keywords
+
+  // Strings
+  .s, .s1, .s2, .se, .sh, .si, .sx { color: #ce9178 !important; } // Strings
+
+  // Numbers
+  .m, .mf, .mh, .mi, .mo { color: #b5cea8 !important; } // Numbers
+
+  // Comments
+  .c, .c1, .cm, .cs { color: #6a9955 !important; font-style: italic; } // Comments
+
+  // Functions
+  .nf, .fm { color: #dcdcaa !important; } // Function names
+
+  // Variables
+  .n, .na, .nb, .nc, .nd, .ne, .ni, .nl, .nn, .no, .nv, .nx, .py { color: #9cdcfe !important; }
+
+  // Operators
+  .o, .ow { color: #d4d4d4 !important; } // Operators
+
+  // Special
+  .bp { color: #569cd6 !important; } // Built-in pseudo
+  .nt { color: #569cd6 !important; } // HTML tags
+  .na { color: #9cdcfe !important; } // HTML attributes
+}
+
+// Code block with line numbers
+.highlight table {
+  background: #1e1e1e !important;
+  border: none !important;
+  margin: 0 !important;
+
+  td {
+    padding: 0 !important;
+    border: none !important;
+  }
+
+  pre {
+    margin: 0 !important;
+    border: none !important;
+    box-shadow: none !important;
+  }
+
+  .gutter {
+    background: #1e1e1e !important;
+    border-right: 1px solid #333 !important;
+    padding: 0 !important;
+    width: 1px !important;
+    min-width: 3em !important;
+    max-width: 3em !important;
+    white-space: nowrap !important;
+    vertical-align: top !important;
+  }
+
+  .gutter pre {
+    padding: 1.5rem 0.75rem 1.5rem 0.5rem !important;
+    margin: 0 !important;
+  }
+
+  .code {
+    padding-left: 1.25em !important;
+    width: auto !important;
+  }
+
+  .code pre {
+    padding: 1.5rem 1.5rem 1.5rem 0 !important;
+  }
+}
+
+// Math equations
+.MathJax {
+  font-size: 1.1em !important;
+}

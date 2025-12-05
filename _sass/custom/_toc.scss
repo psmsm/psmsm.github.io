@@ -1,0 +1,107 @@
+// Table of Contents - Right sidebar
+
+// TOC container
+.toc {
+  background: transparent !important;
+  border: none !important;
+  border-radius: 0 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  max-height: none !important;
+  overflow: visible !important;
+}
+
+// Right sidebar positioning
+.sidebar__right {
+  display: block !important;
+  width: 280px !important;
+  margin-left: 3rem !important;
+  padding-left: 2.5rem !important;
+  padding-right: 0.5rem !important;
+  border-left: 1px solid var(--color-border) !important;
+}
+
+@media (min-width: 64em) {
+  .sidebar__right {
+    position: sticky !important;
+    top: 2rem !important;
+    align-self: flex-start !important;
+    max-height: calc(100vh - 4rem) !important;
+    overflow-y: auto !important;
+  }
+
+  .sidebar__right .toc {
+    overflow: visible !important;
+    max-height: none !important;
+  }
+}
+
+@media (max-width: 64em) {
+  .sidebar__right {
+    display: none !important;
+  }
+}
+
+// TOC title
+.toc .nav__title {
+  background: transparent !important;
+  border: none !important;
+  font-size: 0.75rem !important;
+  font-weight: 700 !important;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-text-light) !important;
+  padding: 0 0 0.75rem 0 !important;
+  margin: 0 0 1rem 0 !important;
+  border-bottom: 1px solid var(--color-border);
+}
+
+// TOC menu
+.toc__menu {
+  font-size: 0.875rem !important;
+  line-height: 1.7;
+  overflow: visible !important;
+  max-height: none !important;
+}
+
+.toc__menu ul {
+  list-style: none;
+  padding-left: 0 !important;
+  margin: 0 !important;
+  overflow: visible !important;
+}
+
+.toc__menu li {
+  margin-bottom: 0.5rem !important;
+}
+
+.toc__menu li ul {
+  padding-left: 1rem !important;
+  margin-top: 0.5rem !important;
+}
+
+.toc__menu li ul li {
+  margin-bottom: 0.4rem !important;
+}
+
+.toc__menu a {
+  color: #6b7280 !important;
+  border-bottom: none !important;
+  padding: 0.25rem 0 !important;
+  display: block;
+  transition: color 0.15s ease;
+}
+
+.toc__menu a:hover {
+  color: var(--color-accent) !important;
+}
+
+.toc__menu .active > a {
+  color: var(--color-accent) !important;
+  font-weight: 600;
+}
+
+// Nested active items
+.toc__menu li ul .active > a {
+  font-weight: 500;
+}

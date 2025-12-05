@@ -1,0 +1,47 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background circle -->
+  <circle cx="32" cy="32" r="32" fill="#047857"/>
+
+  <!-- Subtle grid pattern (coordinate system) -->
+  <line x1="32" y1="8" x2="32" y2="56" stroke="#065f46" stroke-width="0.5" opacity="0.3"/>
+  <line x1="8" y1="32" x2="56" y2="32" stroke="#065f46" stroke-width="0.5" opacity="0.3"/>
+
+  <!-- Binary tree structure - mathematical and CS concept -->
+  <!-- Root node -->
+  <circle cx="32" cy="14" r="3" fill="#ffffff"/>
+
+  <!-- Level 1 branches -->
+  <line x1="32" y1="17" x2="24" y2="24" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="32" y1="17" x2="40" y2="24" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round"/>
+
+  <!-- Level 1 nodes -->
+  <circle cx="24" cy="24" r="2.5" fill="#f0fdf4"/>
+  <circle cx="40" cy="24" r="2.5" fill="#f0fdf4"/>
+
+  <!-- Level 2 branches -->
+  <line x1="24" y1="26.5" x2="20" y2="32" stroke="#d1fae5" stroke-width="2" stroke-linecap="round"/>
+  <line x1="24" y1="26.5" x2="28" y2="32" stroke="#d1fae5" stroke-width="2" stroke-linecap="round"/>
+  <line x1="40" y1="26.5" x2="36" y2="32" stroke="#d1fae5" stroke-width="2" stroke-linecap="round"/>
+  <line x1="40" y1="26.5" x2="44" y2="32" stroke="#d1fae5" stroke-width="2" stroke-linecap="round"/>
+
+  <!-- Level 2 nodes -->
+  <circle cx="20" cy="32" r="2" fill="#d1fae5"/>
+  <circle cx="28" cy="32" r="2" fill="#d1fae5"/>
+  <circle cx="36" cy="32" r="2" fill="#d1fae5"/>
+  <circle cx="44" cy="32" r="2" fill="#d1fae5"/>
+
+  <!-- Trunk -->
+  <rect x="30" y="32" width="4" height="8" fill="#ffffff" rx="0.5"/>
+
+  <!-- Ground line -->
+  <line x1="18" y1="42" x2="46" y2="42" stroke="#065f46" stroke-width="2" stroke-linecap="round"/>
+
+  <!-- Mathematical symbol - Sigma (summation for quant) -->
+  <text x="32" y="54"
+        font-family="Georgia, 'Times New Roman', serif"
+        font-size="12"
+        font-weight="bold"
+        fill="#ffffff"
+        text-anchor="middle"
+        opacity="0.9">Σ</text>
+</svg>

@@ -1,0 +1,81 @@
+# AI Contribution Levels for Blog Posts
+
+levels:
+  0:
+    name: "순수 인간 작성"
+    name_en: "Pure Human"
+    emoji: "✍️"
+    human_ratio: 100
+    ai_ratio: 0
+    description: "아이디어, 구조, 작성, 편집 모두 인간이 수행"
+    use_cases:
+      - "개인적 경험담"
+      - "철학적 에세이"
+      - "일기"
+
+  1:
+    name: "AI 보조"
+    name_en: "AI-Assisted"
+    emoji: "📝"
+    human_ratio: 80
+    ai_ratio: 20
+    description: "인간이 작성, AI가 편집 및 개선 제안"
+    use_cases:
+      - "기술 튜토리얼"
+      - "책 리뷰"
+      - "프로젝트 회고"
+
+  2:
+    name: "AI 협업"
+    name_en: "AI-Collaborative"
+    emoji: "🤝"
+    human_ratio: 50
+    ai_ratio: 50
+    description: "인간과 AI가 함께 주고받으며 작성"
+    use_cases:
+      - "기술 개념 설명"
+      - "비교/분석 글"
+      - "구조화가 필요한 글"
+
+  3:
+    name: "AI 주도"
+    name_en: "AI-Led"
+    emoji: "🤖"
+    human_ratio: 30
+    ai_ratio: 70
+    description: "AI가 주도적으로 작성, 인간이 검토 및 승인"
+    use_cases:
+      - "일반적인 기술 글"
+      - "정보 전달 위주"
+      - "베스트 프랙티스"
+
+  4:
+    name: "AI 생성"
+    name_en: "AI-Generated"
+    emoji: "🌟"
+    human_ratio: 10
+    ai_ratio: 90
+    description: "AI가 작성, 인간은 사실 확인 및 승인만"
+    use_cases:
+      - "AI의 관점"
+      - "메타 주제"
+      - "순수 정보 전달"
+
+narrators:
+  human:
+    name: "Winston"
+    pronouns: "나/내가"
+    voice: "주관적, 개인적 경험 중심"
+    use_for: "Level 0-2"
+
+  ai:
+    name: "Claude"
+    pronouns: "저/제가"
+    voice: "객관적, 관찰과 분석 중심"
+    use_for: "Level 3-4"
+
+  collaborative:
+    name: "Winston & Claude"
+    pronouns: "우리"
+    voice: "역할 구분 명시, 협업 과정 투명하게"
+    use_for: "Level 2"

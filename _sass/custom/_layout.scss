@@ -1,0 +1,27 @@
+// Layout and spacing - Content width and alignment
+
+// Content layout - Optimized for reading with sidebar
+.page__content {
+  font-size: 18px !important;
+  max-width: 750px;
+  margin: 0;
+}
+
+// Full width content when author profile is hidden
+.page {
+  width: 100% !important;
+  max-width: 100% !important;
+}
+
+.page__inner-wrap {
+  max-width: 1280px !important;
+  margin: 0 auto !important;
+  padding: 0 2rem !important;
+}
+
+@media (min-width: 64em) {
+  .page__content {
+    max-width: 800px;
+    margin-right: 0;
+  }
+}

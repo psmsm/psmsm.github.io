@@ -1,0 +1,22 @@
+// Design tokens - Forest of Dialogues theme
+// Color palette inspired by nature and meaningful conversations
+
+:root {
+  // Typography
+  --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
+  --font-mono: 'SF Mono', 'Monaco', 'Menlo', 'Courier New', monospace;
+
+  // Colors - Emerald green accent for forest theme
+  --color-accent: #047857;           // Emerald 700
+  --color-accent-hover: #065f46;     // Emerald 800
+  --color-text: #111827;             // Gray 900
+  --color-text-light: #6b7280;       // Gray 500
+  --color-border: #e5e7eb;           // Gray 200
+  --color-bg-code: #f9fafb;          // Gray 50
+
+  // Spacing
+  --spacing: 1.5rem;
+  --spacing-sm: 1rem;
+  --spacing-lg: 2rem;
+  --spacing-xl: 3rem;
+}
