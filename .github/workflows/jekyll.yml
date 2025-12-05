@@ -1,0 +1,57 @@
+name: 🌲 Forest Build Pipeline
+
+on:
+  # main 브랜치에 푸시가 발생할 때마다 실행
+  push:
+    branches: ["main"]
+  # GitHub Actions 탭에서 수동으로 실행 가능하게 함
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# 동시에 여러 빌드가 돌면 이전 빌드는 취소 (자원 절약)
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  # 1. 빌드 작업 (Build Job)
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.3' # 당신의 로컬 루비 버전과 일치시킴
+          bundler-cache: true # [핵심] Gemfile.lock을 기반으로 정확한 버전을 설치함
+          cache-version: 0
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      - name: Build with Jekyll
+        # baseurl을 자동으로 감지하여 링크 깨짐 방지
+        run: bundle exec jekyll build --baseurl "${{ steps.pages.outputs.base_path }}"
+        env:
+          JEKYLL_ENV: production
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+
+  # 2. 배포 작업 (Deploy Job)
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build # 빌드가 성공해야만 배포 실행
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
