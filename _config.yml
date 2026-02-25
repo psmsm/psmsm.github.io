@@ -25,6 +25,7 @@ author:
 # Reading Files
 include:
   - _pages
+  - _assets
 
 # Plugins
 plugins:
