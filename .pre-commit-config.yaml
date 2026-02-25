@@ -1,0 +1,40 @@
+# Bene Gesserit - AI Contribution Truth Validation
+# "I must not lie. Lies are the trust-killer."
+
+repos:
+  # Bene Gesserit Truth Validator
+  - repo: local
+    hooks:
+      - id: bene-gesserit
+        name: 🏛️  Bene Gesserit Truth Validator
+        entry: python .github/scripts/bene-gesserit-validator.py
+        language: python
+        files: '^_posts/.*\.(md|markdown)$'
+        pass_filenames: false
+        additional_dependencies: ['pyyaml']
+        verbose: true
+
+  # 추가 유용한 pre-commit hooks
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.5.0
+    hooks:
+      # 파일 끝에 빈 줄 확인
+      - id: end-of-file-fixer
+        files: '^_posts/.*\.md$'
+
+      # trailing whitespace 제거
+      - id: trailing-whitespace
+        files: '^_posts/.*\.md$'
+        args: [--markdown-linebreak-ext=md]
+
+      # YAML 문법 검사
+      - id: check-yaml
+        files: '^_posts/.*\.md$'
+        args: [--unsafe]  # Jekyll front matter 허용
+
+      # 큰 파일 방지 (5MB)
+      - id: check-added-large-files
+        args: ['--maxkb=5120']
+
+      # Merge conflict 마커 검사
+      - id: check-merge-conflict

@@ -6,3 +6,22 @@ vendor
 .DS_Store
 .env
 .history/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+.ipynb_checkpoints/
+*.ipynb
+.python-version
+*.egg-info/
+dist/
+build/
+*.egg
+
+# Project specific
+main.py
+pyproject.toml
+uv.lock

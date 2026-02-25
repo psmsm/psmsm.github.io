@@ -1,0 +1,113 @@
+name: Bene Gesserit
+
+# "The truth must flow."
+# AI 기여도 표기의 진실성을 검증합니다.
+
+on:
+  # PR에서 포스트가 추가/수정될 때
+  pull_request:
+    paths:
+      - '_posts/**/*.md'
+      - '_posts/**/*.markdown'
+
+  # main 브랜치에 직접 푸시될 때
+  push:
+    branches:
+      - main
+    paths:
+      - '_posts/**/*.md'
+      - '_posts/**/*.markdown'
+
+  # 수동 실행 가능
+  workflow_dispatch:
+
+  # 매주 월요일 오전 9시 정기 검증 (선택사항)
+  # schedule:
+  #   - cron: '0 0 * * 1'  # 매주 월요일 9AM KST
+
+jobs:
+  truth-validation:
+    name: Truth Validation
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: Install dependencies
+        run: |
+          pip install pyyaml
+
+      - name: Run Bene Gesserit Validator
+        id: validation
+        run: |
+          echo "🏛️  Running Bene Gesserit Truth Validation..."
+          python .github/scripts/bene-gesserit-validator.py --verbose
+
+      - name: Comment on PR (if validation failed)
+        if: failure() && github.event_name == 'pull_request'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: `## 🚨 Bene Gesserit Truth Validation Failed
+
+            > "I must not lie. Lies are the trust-killer."
+
+            AI 기여도 표기에 불일치가 발견되었습니다.
+
+            **발견된 문제:**
+            - AI가 주도적으로 작성한 것으로 보이지만 \`contribution_level\`이 낮게 설정됨
+            - \`ai_contribution\`과 \`contribution_level\`이 일치하지 않음
+            - \`author\` 필드와 실제 작성자가 일치하지 않음
+
+            **해결 방법:**
+            1. 위 로그를 확인하여 어느 파일에서 문제가 발생했는지 확인
+            2. 해당 파일의 front matter를 수정
+            3. 다시 커밋 & 푸시
+
+            **예시:**
+            \`\`\`yaml
+            # AI가 주로 작성한 경우
+            ai_contribution: major
+            contribution_level: 3
+            author: Forest (Winston 검토)
+            ai_role: primary-author
+
+            # AI가 보조한 경우
+            ai_contribution: moderate
+            contribution_level: 2
+            author: Winston & Forest
+            ai_role: co-author
+
+            # 최소한의 AI 도움
+            ai_contribution: minimal
+            contribution_level: 1
+            author: Winston (AI 편집)
+            ai_role: editing
+            \`\`\`
+
+            ---
+
+            _"Truth is the first casualty of convenience."_ - Bene Gesserit`
+            });
+
+      - name: Upload validation report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: bene-gesserit-report
+          path: |
+            .github/scripts/bene-gesserit-validator.py
+          retention-days: 30

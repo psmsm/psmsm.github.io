@@ -66,6 +66,9 @@ kramdown:
     block:
       line_numbers: true
 
+# Show future dated posts
+future: true
+
 # Archives
 category_archive:
   type: liquid
